@@ -30,6 +30,10 @@ shiyan1/
 python -m unittest discover -s tests -v
 ```
 
+## 版本
+
+- v0.1 初始版本
+
 ## 作者
 
 吴子牛 2024041009
