@@ -53,6 +53,13 @@ def parse_scores(text: str) -> List[float]:
             scores.append(float(part))
     return scores
 
+def pass_rate(scores: Iterable[float], pass_line: float = 60) -> float:
+    """返回及格率（0~1）；空输入返回 0.0。"""
+    values = list(scores)
+    if not values:
+        return 0.0
+    passed = sum(1 for s in values if s >= pass_line)
+    return passed / len(values)
 
 def summarize(scores: Iterable[float]) -> Dict[str, object]:
     """汇总统计结果。"""
