@@ -61,6 +61,12 @@ def pass_rate(scores: Iterable[float], pass_line: float = 60) -> float:
     passed = sum(1 for s in values if s >= pass_line)
     return passed / len(values)
 
+def to_csv(scores: Iterable[float]) -> str:
+    """把成绩导出成 CSV 文本（表头 + 每行一个成绩）。"""
+    lines = ["score"]
+    lines += [str(s) for s in scores]
+    return "\n".join(lines)
+
 def summarize(scores: Iterable[float]) -> Dict[str, object]:
     """汇总统计结果。"""
     values = list(scores)

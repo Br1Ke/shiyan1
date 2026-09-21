@@ -40,6 +40,8 @@ class TestGradeStats(unittest.TestCase):
         self.assertAlmostEqual(gs.pass_rate([90, 80, 50, 30]), 0.5)
         self.assertEqual(gs.pass_rate([]), 0.0)
         self.assertEqual(gs.pass_rate([100, 100]), 1.0)
+    def test_to_csv(self):
+        self.assertEqual(gs.to_csv([90, 80]), "score\n90\n80")
     def test_summarize(self):
         s = gs.summarize([90, 80])
         self.assertEqual(s["count"], 2)
